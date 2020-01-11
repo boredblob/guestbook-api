@@ -28,6 +28,8 @@ app.use(express.json());
 
 app.use("/", authRoute);
 
-app.listen(7000, () => {
+let port = process.env.PORT || 8080;
+
+app.listen(port, () => {
   console.log("Server listening on port 7000");
 });
