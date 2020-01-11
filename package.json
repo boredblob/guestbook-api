@@ -2,9 +2,13 @@
   "name": "api",
   "version": "1.0.0",
   "description": "A little API",
+  "engines": {
+    "node": "13.1.0",
+    "npm": "6.12.2"
+  },
   "main": "index.js",
   "scripts": {
-    "start": "index.js"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -22,8 +26,5 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "mongoose": "^5.8.6"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.2"
   }
 }
