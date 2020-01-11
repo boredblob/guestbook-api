@@ -31,5 +31,5 @@ app.use("/", authRoute);
 let port = process.env.PORT || 8080;
 
 app.listen(port, () => {
-  console.log("Server listening on port 7000");
+  console.log("Server listening on port " + port);
 });
