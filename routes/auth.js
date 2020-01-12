@@ -6,9 +6,11 @@ const { JSDOM } = require('jsdom');
 const window = (new JSDOM('')).window;
 const DOMPurify = createDOMPurify(window);
 
-
 router.post("/guestbook", async (req, res) => {
-  const purifyOptions = {FORBID_ATTR: ["style"], FORBID_TAGS: ['style']};
+  const purifyOptions = {
+    FORBID_ATTR: ["style"],
+    ALLOWED_TAGS: ['a', 'abbr', 'b', 'bdi', 'bdo', 'br', 'code', 'del', 'em', 'i', 'ins', 'mark', 'q', 's', 'samp', 'small', 'sub', 'sup', 'var', 'wbr']
+  };
   const clean_body = {
     name: DOMPurify.sanitize(req.body.name, purifyOptions),
     message: DOMPurify.sanitize(req.body.message, purifyOptions)
