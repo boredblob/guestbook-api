@@ -6,7 +6,7 @@ const { JSDOM } = require('jsdom');
 const window = (new JSDOM('')).window;
 const DOMPurify = createDOMPurify(window);
 
-router.post("/guestbook", async (req, res) => {
+router.post("/", async (req, res) => {
   const purifyOptions = {
     FORBID_ATTR: ["style"],
     ALLOWED_TAGS: ['a', 'abbr', 'b', 'bdi', 'bdo', 'br', 'code', 'del', 'em', 'i', 'ins', 'mark', 'q', 's', 'samp', 'small', 'sub', 'sup', 'var', 'wbr']
@@ -34,7 +34,7 @@ router.post("/guestbook", async (req, res) => {
   };
 });
 
-router.get("/guestbook", async (req, res) => {
+router.get("/", async (req, res) => {
   Guestbook.find({}).then(entry => {
     res.status(200).json(entry);
   });
